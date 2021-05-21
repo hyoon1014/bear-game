@@ -27,23 +27,25 @@ class MyGame extends Phaser.Scene
         const grizzly = this.add.sprite(400, 400, 'grizzlybear');
         
         grizzly.setScale(.25);
+        
+        const helloButton = this.add.text(350, 200, "Hello, I\'m a grizzly bear!", {fill: 0x83a1a7});
 
         const polarBear = this.add.sprite(700, 75, 'polarbear');
 
         polarBear.setScale(.20);
 
-        const music = this.sound.add('thememusic');``
+        const music = this.sound.add('thememusic');
 
-        if (!this.sound.locked)
-        {
-            music.play()
-        }
-        else
-        {
-            this.sound.once(Phaser.Sound.Events.UNLOCKED, () => {
-                music.play()
-            })
-        }
+        // if (!this.sound.locked)
+        // {
+        //     music.play()
+        // }
+        // else
+        // {
+        //     this.sound.once(Phaser.Sound.Events.UNLOCKED, () => {
+        //         music.play()
+        //     })
+        // }
         // music.onDecoded.add(start, this);
 
 
