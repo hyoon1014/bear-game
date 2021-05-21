@@ -2,6 +2,10 @@ import Phaser from 'phaser';
 // import logoImg from './assets/logo.png';
 import Grizzly from './assets/grizzlybear.png';
 
+import PolarBear from './assets/polarbearfam.png';
+
+import Music from './assets/jazzcomedy.mp3';
+
 class MyGame extends Phaser.Scene
 {
     constructor ()
@@ -13,6 +17,9 @@ class MyGame extends Phaser.Scene
     {
         // this.load.image('logo', logoImg);
         this.load.image('grizzlybear', Grizzly);
+        this.load.image('polarbear', PolarBear);
+        this.load.audio('thememusic', Music);
+
     }
       
     create ()
@@ -20,6 +27,26 @@ class MyGame extends Phaser.Scene
         const grizzly = this.add.sprite(400, 400, 'grizzlybear');
         
         grizzly.setScale(.25);
+
+        const polarBear = this.add.sprite(700, 75, 'polarbear');
+
+        polarBear.setScale(.20);
+
+        const music = this.sound.add('thememusic');``
+
+        if (!this.sound.locked)
+        {
+            music.play()
+        }
+        else
+        {
+            this.sound.once(Phaser.Sound.Events.UNLOCKED, () => {
+                music.play()
+            })
+        }
+        // music.onDecoded.add(start, this);
+
+
         // const logo = this.add.image(400, 150, 'logo');
       
         // this.tweens.add({
@@ -32,6 +59,12 @@ class MyGame extends Phaser.Scene
         // });
     }
 }
+
+// function start() {
+
+//     music.fadeIn(4000);
+
+// }
 
 const config = {
     type: Phaser.AUTO,
