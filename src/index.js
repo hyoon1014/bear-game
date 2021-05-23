@@ -28,8 +28,12 @@ class MyGame extends Phaser.Scene
         
         grizzly.setScale(.25);
         
-        const helloButton = this.add.text(350, 200, "Hello, I\'m a grizzly bear!", {fill: 0x83a1a7});
 
+        const helloButton = this.add.text(350, 200, "Hello, I\'m a grizzly bear!", {fill: '#83a1a7'});
+            helloButton.setInteractive()
+
+            helloButton.on('pointerover', () => helloButton.setStyle({ fill: '#fef01a'}) )
+                .on('pointerout', () => helloButton.setStyle({ fill: '#83a1a7'}))
         const polarBear = this.add.sprite(700, 75, 'polarbear');
 
         polarBear.setScale(.20);
